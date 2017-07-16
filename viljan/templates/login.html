@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="login" class="container">
+	<h2>Logga in</h2>
+	<p>För att komma åt serversidan krävs inloggning.</p>
+	<form method="post" action="{% url 'login' %}?next={{ next }}">
+		{% csrf_token %}
+		<input type="hidden" name="next" value="{{ next }}">
+		{{ form }}
+		<button type="submit">Logga in</button>
+	</form>
+</div>
+{% endblock %}

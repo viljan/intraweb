@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+<ul>
+{% block content %}
+    <div class="list-group">
+        {% for competition in competitions %}
+            <a href="{% url 'competition_details' %}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ competition }}</h4>
+            </a>
+        {% empty %}
+            <p>Det finns inga tävlingar att visa!</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+</ul>

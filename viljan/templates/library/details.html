@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block heading %}Filbibliotek{% endblock %}
+
+{% block content %}
+    <div class="list-group">
+        <a href="{% url 'document_list' library.id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">Dokument</h4>
+        </a>
+        <a href="{% url 'driver_list' library.id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">Drivrutiner</h4>
+        </a>
+        <a href="{% url 'application_list' library.id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">Programvaror</h4>
+        </a>
+    </div>
+{% endblock %}

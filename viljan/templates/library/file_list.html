@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="list-group">
+        {% for file in library %}
+            <li class="list-group-item">
+                <a type="button" href="{% url 'media' file.id %}" class="pull-right btn btn-default">
+                    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Hämta
+                </a>
+                <h4 class="list-group-item-heading">{{ file.name }}{% if file.version %} <small>version {{ file.version }}</small>{% endif %}</h4>
+                <p class="list-group-text">{{ file.description }}</p>
+            </li>
+        {% empty %}
+            <p>Det finns inga {% block empty %}{% endblock %} att visa!</p>
+        {% endfor %}
+    </div>
+{% endblock %}

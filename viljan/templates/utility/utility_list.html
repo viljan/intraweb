@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load utility_extras %}
+
+{% block js %}
+    <script src="{% static 'js/utility.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <ul class="list-group">
+        {% for utility in utilities %}
+            {% if utility.code %} {# utility is an instance of PythonUtility #}
+                <li class="list-group-item">
+                    <a href="{% url 'execute_python' utility.id %}" type="button" class="pull-right btn btn-default">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Kör
+                    </a>
+                    <h4 class="list-group-item-heading">{{ utility }}</h4>
+                    <p class="list-group-item-text">{{ utility.description }}</p>
+                </li>
+            {% else %}
+                <li class="list-group-item">
+                    <button data-id="{{ utility.id }}" type="button" class="pull-right execute_button btn btn-default">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Kör
+                    </button>
+                    <h4 class="list-group-item-heading">{{ utility }}</h4>
+                    <p class="list-group-item-text">{{ utility.description }}</p>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% block utilities %}
+        {% endblock %}
+    </ul>
+{% endblock %}

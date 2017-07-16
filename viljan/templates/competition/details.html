@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="list-group">
+        <a href="{% url 'utility_client' competition.id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">Klientverktyg</h4>
+            <p class="list-group-item-text">Verktyg som körs på klienten.</p>
+        </a>
+        <a href="{% url 'utility_server' competition.id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">Serververktyg</h4>
+            <p class="list-group-item-text">Verktyg som körs på servern, inloggning krävs.</p>
+        </a>
+        <a href="{% url 'competition_library' competition.id %}" class="list-group-item">
+            <h4 class="list-group-item-heading">Filbibliotek</h4>
+        </a>
+    </div>
+{% endblock %}

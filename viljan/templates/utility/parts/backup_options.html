@@ -1,0 +1,2 @@
+<option value="">Välj en säkerhetskopia...</option>
+{% for file, date in backups %}<option value="{{ file }}">{{ date|date:'Y-m-d H:i:s' }}</option>{% endfor %}

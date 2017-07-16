@@ -1,0 +1,9 @@
+<div class="alert alert-{{ success|yesno:'success,danger' }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Körningen {{ success|yesno:'lyckades,misslyckades' }}!</strong> Status {{ exit_status }}.
+    {% if output %}
+        <pre>{{ output }}</pre>
+    {% endif %}
+</div>

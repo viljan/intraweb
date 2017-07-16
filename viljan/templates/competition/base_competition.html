@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block small %}
+    {% if competition %}
+        <a href="{% url 'competition_details' competition.id %}">{{ competition }}</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if competition %}
+        {% block competition_content %}
+        {% endblock %}
+    {% else %}
+        <h3>Hittade ingen aktiv tävling!</h3>
+        <p>Ingen aktiv tävling kunde hittas. En administratör måste aktivera en tävling.</p>
+    {% endif %}
+{% endblock %}

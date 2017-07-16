@@ -1,0 +1,29 @@
+* {
+    max-width: 100%;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	background-color: #990000 !important;
+	font-family: "Arial";
+}
+
+#wrapper {
+	margin: 16px auto;
+    max-width: 1024px;
+}
+
+#content, #header, #footer {
+	background-color: #eeeeee;
+    border: 2px solid #bdbdbd;
+    border-radius: 4px;
+	margin: 16px;
+	padding: 8px;
+}
+
+#content {
+	background-color: #ffffff;
+}

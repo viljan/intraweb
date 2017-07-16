@@ -1,0 +1,50 @@
+{% extends 'utility/utility_list.html' %}
+{% load utility_extras %}
+
+{% block heading %}Serververktyg{% endblock %}
+
+{% block utilities %}
+    {% if databases %}
+        <li class="list-group-item">
+            <form id="backup_form" method="post">
+                <button id="backup_button" type="submit" class="pull-right btn btn-default">
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Kör
+                </button>      
+                <div class="pull-right form-group">
+                    <select name="database" class="form-control">
+                        <option value="" selected>Välj en databas...</option>
+                        {% for db in databases %}
+                            <option value="{{ db }}">{{ db }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% csrf_token %}
+            </form>
+            <h4 class="list-group-item-heading">Säkerhetskopiera databas</h4>
+            <p class="list-group-item-text">Välj en databas att säkerhetskopiera.</p>
+        </li>
+        <li class="list-group-item">
+            <form id="restore_form" method="post">
+                <button id="restore_button" type="submit" class="pull-right btn btn-default">
+                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Kör
+                </button>      
+                <div class="pull-right form-group">
+                    <select id="restore_select_backup" name="backup" class="form-control" disabled>
+                        <option value="" selected>Välj en säkerhetskopia...</option>
+                    </select>
+                </div>
+                <div class="pull-right form-group">
+                    <select id="restore_select_database" name="database" class="form-control">
+                        <option value="" selected>Välj en databas...</option>
+                        {% for db in databases %}
+                            <option value="{{ db }}">{{ db }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% csrf_token %}
+            </form>
+            <h4 class="list-group-item-heading">Återställ databas</h4>
+            <p class="list-group-item-text">Välj en säkerhetskopia att återställa databasen till.</p>
+        </li>
+    {% endif %}
+{% endblock %}

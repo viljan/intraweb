@@ -1,0 +1,14 @@
+{% extends 'utility/utility_list.html' %}
+{% load utility_extras %}
+
+{% block heading %}Klientverktyg{% endblock %}
+
+{% block utilities %}
+	<li class="list-group-item">
+        <a href="http://server1:8080/servlet/ClientJnlpServlet" type="button" class="pull-right btn btn-default">
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Kör
+        </a>
+        <h4 class="list-group-item-heading">Anslut till OLA Server</h4>
+        <p class="list-group-item-text">Startar OLA Klient, ansluter till OLA Server och öppnar aktuell tävlingsdatabas.</p>
+    </li>
+{% endblock %}
